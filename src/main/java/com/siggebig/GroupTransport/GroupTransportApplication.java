@@ -2,8 +2,7 @@ package com.siggebig.GroupTransport;
 
 import com.siggebig.GroupTransport.model.Group;
 
-import com.siggebig.GroupTransport.model.User;
-import com.siggebig.GroupTransport.repo.JpaGroupRepository;
+import com.siggebig.GroupTransport.model.User.User;
 import com.siggebig.GroupTransport.service.GroupService;
 import com.siggebig.GroupTransport.service.UserService;
 import org.springframework.boot.CommandLineRunner;

@@ -1,4 +1,4 @@
-package com.siggebig.GroupTransport.model;
+package com.siggebig.GroupTransport.model.User;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;

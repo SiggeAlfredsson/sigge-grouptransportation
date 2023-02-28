@@ -1,6 +1,6 @@
 package com.siggebig.GroupTransport.controller;
 
-import com.siggebig.GroupTransport.model.User;
+import com.siggebig.GroupTransport.model.User.User;
 import com.siggebig.GroupTransport.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

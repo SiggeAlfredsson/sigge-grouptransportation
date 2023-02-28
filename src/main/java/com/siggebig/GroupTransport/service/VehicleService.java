@@ -3,8 +3,8 @@ package com.siggebig.GroupTransport.service;
 import com.siggebig.GroupTransport.Exception.GroupNotFoundException;
 import com.siggebig.GroupTransport.Exception.VehicleNotFoundException;
 import com.siggebig.GroupTransport.model.Group;
-import com.siggebig.GroupTransport.model.Vehicle;
-import com.siggebig.GroupTransport.model.VehicleRegistration;
+import com.siggebig.GroupTransport.model.Vehicle.Vehicle;
+import com.siggebig.GroupTransport.model.Vehicle.VehicleRegistration;
 import com.siggebig.GroupTransport.repo.JpaGroupRepository;
 import com.siggebig.GroupTransport.repo.JpaVehicleRegistrationRepository;
 import com.siggebig.GroupTransport.repo.JpaVehicleRepository;
@@ -37,6 +37,9 @@ public class VehicleService {
         jpaVehicleRepository.deleteById(vehicleId);
     }
 
+    public Vehicle get(long id) {
+        return jpaVehicleRepository.getReferenceById(id);
+    }
 
     public void addVehicleToGroup(Long vehicleId, Long groupId) {
         Vehicle vehicle = jpaVehicleRepository.findById(vehicleId).orElseThrow(() -> new VehicleNotFoundException(vehicleId));

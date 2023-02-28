@@ -1,6 +1,7 @@
-package com.siggebig.GroupTransport.model;
+package com.siggebig.GroupTransport.model.User;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.siggebig.GroupTransport.model.Group;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

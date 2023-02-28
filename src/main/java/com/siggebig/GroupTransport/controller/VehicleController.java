@@ -1,6 +1,6 @@
 package com.siggebig.GroupTransport.controller;
 
-import com.siggebig.GroupTransport.model.Vehicle;
+import com.siggebig.GroupTransport.model.Vehicle.Vehicle;
 import com.siggebig.GroupTransport.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +16,19 @@ public class VehicleController {
     @Autowired
     private VehicleService vehicleService;
 
+    @PatchMapping("vehicle/use/{state}/{vehicleId}") //state 0=false 1=true
+    public void setAvailableState(@PathVariable String state, @PathVariable long vehicleId) {
+        Vehicle newVehicle = vehicleService.get(vehicleId);
+
+        switch(state) {
+            case "1": newVehicle.setAvailable(true); break;
+            case "0": newVehicle.setAvailable(false); break;
+            default: throw new IllegalStateException(state + " was illdefined");
+        }
+
+        vehicleService.save(newVehicle);
+
+    }
 
     @GetMapping("vehicle")
     public ResponseEntity<List<Vehicle>> getAllVehicles() {

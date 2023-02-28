@@ -1,6 +1,6 @@
 package com.siggebig.GroupTransport.repo;
 
-import com.siggebig.GroupTransport.model.VehicleRegistration;
+import com.siggebig.GroupTransport.model.Vehicle.VehicleRegistration;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
