@@ -24,6 +24,9 @@ public class Vehicle implements Cloneable {
     @Column
     private boolean available = true;
 
+    @Column
+    private String location;
+
     @OneToMany(mappedBy = "vehicle")
     @JsonIgnoreProperties("vehicle")
     Set<VehicleRegistration> registrations;
