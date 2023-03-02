@@ -1,6 +1,6 @@
 package com.siggebig.GroupTransport.controller;
 
-import com.siggebig.GroupTransport.model.User.User;
+import com.siggebig.GroupTransport.model.User;
 import com.siggebig.GroupTransport.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -44,10 +44,16 @@ public class UserController {
         return getAllUsers();
     }
 
-    @PostMapping("testuser/{userId}/{groupId}")
+    @PostMapping("user/{userId}/{groupId}")
     public ResponseEntity<String> addUserToGroup(@PathVariable Long userId, @PathVariable Long groupId) {
         userService.addUserToGroup(userId, groupId);
         return ResponseEntity.ok("User added to group successfully.");
+    }
+
+    @DeleteMapping("user/{userId}/{groupId}")
+    public ResponseEntity<String> removeUserFromGroup(@PathVariable Long userId, @PathVariable Long groupId) {
+        userService.removeUserFromGroup(userId, groupId);
+        return ResponseEntity.ok("User removed from group successfully.");
     }
 
 

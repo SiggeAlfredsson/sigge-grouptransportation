@@ -16,6 +16,10 @@ public class GroupService {
         return jpaGroupRepository.findAll();
     }
 
+    public Group getById(long id) {
+        return jpaGroupRepository.getReferenceById(id);
+    }
+
     public Group save(Group group) {
         return jpaGroupRepository.save(group);
     }

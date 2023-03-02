@@ -2,13 +2,14 @@ package com.siggebig.GroupTransport;
 
 import com.siggebig.GroupTransport.model.Group;
 
-import com.siggebig.GroupTransport.model.User.User;
+import com.siggebig.GroupTransport.model.User;
 import com.siggebig.GroupTransport.service.GroupService;
 import com.siggebig.GroupTransport.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 
 @SpringBootApplication
@@ -16,6 +17,12 @@ public class GroupTransportApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GroupTransportApplication.class, args);
+	}
+
+
+	@Bean
+	public RestTemplate getRestTemplate() {
+		return new RestTemplate();
 	}
 
 	@Bean

@@ -1,12 +1,14 @@
 package com.siggebig.GroupTransport.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.siggebig.GroupTransport.model.User.UserRegistration;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -28,5 +30,13 @@ public class Group {
     @OneToMany(mappedBy = "group")
     @JsonIgnoreProperties("group")
     Set<UserRegistration> registrations;
+
+    @OneToMany(mappedBy = "group")
+    @JsonIgnoreProperties("group")
+    Set<RouteRegistration> registrations2;
+
+
+
+
 
 }

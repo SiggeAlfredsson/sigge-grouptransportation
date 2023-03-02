@@ -2,9 +2,10 @@ package com.siggebig.GroupTransport.service;
 
 import com.siggebig.GroupTransport.Exception.GroupNotFoundException;
 import com.siggebig.GroupTransport.Exception.UserNotFoundException;
+import com.siggebig.GroupTransport.Exception.GeneralException;
 import com.siggebig.GroupTransport.model.Group;
-import com.siggebig.GroupTransport.model.User.UserRegistration;
-import com.siggebig.GroupTransport.model.User.User;
+import com.siggebig.GroupTransport.model.UserRegistration;
+import com.siggebig.GroupTransport.model.User;
 import com.siggebig.GroupTransport.repo.JpaUserRegistrationRepository;
 import com.siggebig.GroupTransport.repo.JpaGroupRepository;
 import com.siggebig.GroupTransport.repo.JpaUserRepository;
@@ -58,6 +59,13 @@ public class UserService {
         jpaUserRepository.save(user);
         jpaGroupRepository.save(group);
         jpaUserRegistrationRepository.save(reg);
+    }
+
+    public void removeUserFromGroup(Long userId, Long groupId) {
+        UserRegistration userRegistration = jpaUserRegistrationRepository.findByUserIdAndGroupId(userId, groupId)
+                .orElseThrow(() -> new GeneralException());
+
+        jpaUserRegistrationRepository.delete(userRegistration);
     }
 
 }

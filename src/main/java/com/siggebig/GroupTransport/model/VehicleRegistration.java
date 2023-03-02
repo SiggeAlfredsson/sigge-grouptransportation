@@ -1,7 +1,8 @@
-package com.siggebig.GroupTransport.model.User;
+package com.siggebig.GroupTransport.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.siggebig.GroupTransport.model.Group;
+import com.siggebig.GroupTransport.model.Vehicle;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +12,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-public class UserRegistration {
+public class VehicleRegistration {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,9 +21,9 @@ public class UserRegistration {
     private LocalDateTime addedToGroupAt;
 
     @ManyToOne
-    @JoinColumn(name="user_id")
+    @JoinColumn(name="vehicle_id")
     @JsonIgnoreProperties("registrations")
-    private User user;
+    private Vehicle vehicle;
 
     @ManyToOne
     @JoinColumn(name="group_id")

@@ -1,5 +1,6 @@
-package com.siggebig.GroupTransport.model.Vehicle;
+package com.siggebig.GroupTransport.model;
 
+import com.siggebig.GroupTransport.model.Vehicle;
 import lombok.Getter;
 
 @Getter

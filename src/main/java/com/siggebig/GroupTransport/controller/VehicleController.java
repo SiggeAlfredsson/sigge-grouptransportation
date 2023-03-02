@@ -1,6 +1,6 @@
 package com.siggebig.GroupTransport.controller;
 
-import com.siggebig.GroupTransport.model.Vehicle.Vehicle;
+import com.siggebig.GroupTransport.model.Vehicle;
 import com.siggebig.GroupTransport.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -71,10 +71,16 @@ public class VehicleController {
         }
     }
 
-    @PostMapping("testvehicle/{vehicleId}/{groupId}")
-    public ResponseEntity<String> addUserToGroup(@PathVariable Long vehicleId, @PathVariable Long groupId) {
+    @PostMapping("vehicle/{vehicleId}/{groupId}")
+    public ResponseEntity<String> addVehicleToGroup(@PathVariable Long vehicleId, @PathVariable Long groupId) {
         vehicleService.addVehicleToGroup(vehicleId, groupId);
         return ResponseEntity.ok("Vehicle added to group successfully.");
+    }
+
+    @DeleteMapping("vehicle/{vehicleId}/{groupId}")
+    public ResponseEntity<String> removeVehicleFromGroup(@PathVariable Long vehicleId, @PathVariable Long groupId) {
+        vehicleService.removeVehicleFromGroup(vehicleId, groupId);
+        return ResponseEntity.ok("Vehicle removed from group successfully.");
     }
 
 }

@@ -14,12 +14,6 @@ public class GroupController {
     @Autowired
     private GroupService groupService;
 
-/*
-    @GetMapping("group")
-    public List<Group> getAllGroups() {
-        return groupService.getAll();
-    } */
-
     @GetMapping("group")
     public ResponseEntity<List<Group>> getAllGroups() {
         List<Group> groups = groupService.getAll();
