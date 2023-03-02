@@ -28,9 +28,9 @@ public class RouteController {
     @Autowired
     private RouteService routeService;
 
-    @GetMapping("getroutetest")
+    @GetMapping("getroute")
     public List<Route> getOtherRoute(@RequestParam String origin, @RequestParam String destination) {
-        String url = "http://localhost:9090/driving?origin={origin}&destination={destination}";
+        String url = "https://grouptransport-individual.azuremicroservices.io/driving?origin={origin}&destination={destination}";
         ResponseEntity<List<Route>> response = restTemplate.exchange(url, HttpMethod.GET, null, new ParameterizedTypeReference<List<Route>>() {}, origin, destination);
         return response.getBody();
     }
@@ -43,7 +43,7 @@ public class RouteController {
         routeService.addRouteToGroup(groupId, origin, destination);
 
 
-        return ResponseEntity.ok().body("Yexbox");
+        return ResponseEntity.ok().body("Route added to group");
     }
 
 }
