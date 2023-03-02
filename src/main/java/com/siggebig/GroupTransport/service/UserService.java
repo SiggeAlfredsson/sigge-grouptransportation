@@ -54,7 +54,7 @@ public class UserService {
         reg.setAddedToGroupAt(LocalDateTime.now());
 
         user.getRegistrations().add(reg);
-        group.getRegistrations().add(reg);
+        group.getUsers().add(reg);
 
         jpaUserRepository.save(user);
         jpaGroupRepository.save(group);

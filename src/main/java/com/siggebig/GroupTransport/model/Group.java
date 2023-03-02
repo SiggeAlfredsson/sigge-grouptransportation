@@ -29,11 +29,15 @@ public class Group {
 
     @OneToMany(mappedBy = "group")
     @JsonIgnoreProperties("group")
-    Set<UserRegistration> registrations;
+    Set<UserRegistration> Users;
 
     @OneToMany(mappedBy = "group")
     @JsonIgnoreProperties("group")
-    Set<RouteRegistration> registrations2;
+    Set<RouteRegistration> Routes;
+
+    @OneToMany(mappedBy = "group")
+    @JsonIgnoreProperties("group")
+    Set<VehicleRegistration> Vehicles;
 
 
 
