@@ -7,28 +7,44 @@ AUTH?
 
 ENDPOINTS
 --------------------------------------------------
-GET
+GET:
 group
 getroute+params
 user
 vehicle
 
+-------------------
 
-POST
+POST:
+
 group
+
 groups/groupid/routes // create route, change endpoint add delete
+
 user
+
 user/userId/groupId
+
 vehicle
+
 vehicle/vehicleId/groupId
 
-DELETE
+-------------------
+
+DELETE:
+
 channel/groupId    // change to group ?
+
 user/userId
+
 user/userId/groupId
+
 vehicle/vehicleId
+
 vehicle/vehicleId/groupId
 
+-------------------
 
-PATCH
+PATCH:
+
 vehicle/use/state(0/1)/vehicleId
