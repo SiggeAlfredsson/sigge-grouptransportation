@@ -7,10 +7,16 @@ AUTH?
 
 ENDPOINTS
 --------------------------------------------------
+
+
 GET:
+
 group
+
 getroute+params
+
 user
+
 vehicle
 
 -------------------
