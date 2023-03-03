@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("route/*")
 public class RouteController {
 
 
@@ -23,25 +24,28 @@ public class RouteController {
     private RestTemplate restTemplate;
 
     @Autowired
-    private GroupService groupService;
-
-    @Autowired
     private RouteService routeService;
 
-    @GetMapping("getroute")
-    public List<Route> getOtherRoute(@RequestParam String origin, @RequestParam String destination) {
+    @GetMapping("car")
+    public List<Route> getCarRoute(@RequestParam String origin, @RequestParam String destination) {
         String url = "https://grouptransport-individual.azuremicroservices.io/driving?origin={origin}&destination={destination}";
         ResponseEntity<List<Route>> response = restTemplate.exchange(url, HttpMethod.GET, null, new ParameterizedTypeReference<List<Route>>() {}, origin, destination);
+
+        System.out.println();
         return response.getBody();
     }
 
 
-    @PostMapping("/groups/{groupId}/routes")
-    public ResponseEntity<String> addRouteToGroup(@PathVariable Long groupId, @RequestParam String origin, @RequestParam String destination) {
+    @PostMapping("car/{groupId}")
+    public ResponseEntity<String> addCarRouteToGroup(@PathVariable Long groupId, @RequestParam String origin, @RequestParam String destination) {
 
+        // get vehicles in group from groupid,
+        // set vehicle.isAvailable=false,
+        // get route duration
+        // set vehicle.setAvailableAt(LocalDateTime.now().plusMinutes(duration));
+        // vehicle.setLocation(destination); ?
 
-        routeService.addRouteToGroup(groupId, origin, destination);
-
+        routeService.addCarRouteToGroup(groupId, origin, destination);
 
         return ResponseEntity.ok().body("Route added to group");
     }

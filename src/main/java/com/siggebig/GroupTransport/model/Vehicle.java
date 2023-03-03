@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Getter
@@ -27,6 +29,9 @@ public class Vehicle implements Cloneable {
     @Column
     private String location;
 
+    @Column
+    private LocalDateTime availableAt;
+
     @OneToMany(mappedBy = "vehicle")
     @JsonIgnoreProperties("vehicle")
     Set<VehicleRegistration> registrations;
@@ -42,6 +47,7 @@ public class Vehicle implements Cloneable {
             vehicle.setVehicleType(this.getVehicleType());
             vehicle.setAvailable(this.isAvailable());
             vehicle.setRegistrations(registrations);
+            vehicle.setAvailableAt(this.getAvailableAt());
 
             return vehicle;
         }

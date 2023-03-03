@@ -14,7 +14,7 @@ public class GroupController {
     @Autowired
     private GroupService groupService;
 
-    @GetMapping("group")
+    @GetMapping("groups")
     public ResponseEntity<List<Group>> getAllGroups() {
         List<Group> groups = groupService.getAll();
 
@@ -38,7 +38,7 @@ public class GroupController {
 
 
 
-    @DeleteMapping("channel/{groupId}")
+    @DeleteMapping("group/{groupId}")
     public ResponseEntity<List<Group>> deleteGroup(@PathVariable long groupId) {
 
         List<Group> groups = groupService.getAll();

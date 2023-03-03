@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -16,21 +17,37 @@ public class VehicleController {
     @Autowired
     private VehicleService vehicleService;
 
-    @PatchMapping("vehicle/use/{state}/{vehicleId}") //state 0=false 1=true
-    public void setAvailableState(@PathVariable String state, @PathVariable long vehicleId) {
+
+    @PatchMapping("vehicle/{vehicleId}/location/{newLocation}")
+    public void changeVehicleLocation(@PathVariable long vehicleId, @PathVariable String newLocation) {
+        Vehicle vehicle = vehicleService.get(vehicleId);
+
+        vehicle.setLocation(newLocation);
+        vehicleService.save(vehicle);
+    }
+
+
+    @PatchMapping("vehicle/use/{state}/{time}/{vehicleId}") //state 0=false 1=true // time=how long estimated to use in minutes
+    public void setAvailableState(@PathVariable int state, @PathVariable long vehicleId, @PathVariable int time ) {
         Vehicle newVehicle = vehicleService.get(vehicleId);
 
         switch(state) {
-            case "1": newVehicle.setAvailable(true); break;
-            case "0": newVehicle.setAvailable(false); break;
+            case 1: newVehicle.setAvailable(true); break;
+            case 0: newVehicle.setAvailable(false); break;
             default: throw new IllegalStateException(state + " was illdefined");
+        }
+
+
+
+        if(state==0 && time!=0){
+        newVehicle.setAvailableAt(LocalDateTime.now().plusMinutes(time));
         }
 
         vehicleService.save(newVehicle);
 
     }
 
-    @GetMapping("vehicle")
+    @GetMapping("vehicles")
     public ResponseEntity<List<Vehicle>> getAllVehicles() {
         List<Vehicle> vehicles = vehicleService.getAll();
 

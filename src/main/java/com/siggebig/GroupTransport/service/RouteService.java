@@ -27,7 +27,7 @@ public class RouteService {
 
 
 
-    public void addRouteToGroup(Long groupId, String origin, String destination) {
+    public void addCarRouteToGroup(Long groupId, String origin, String destination) {
         Group group = jpaGroupRepository.findById(groupId).orElseThrow(() -> new GroupNotFoundException(groupId));
 
 

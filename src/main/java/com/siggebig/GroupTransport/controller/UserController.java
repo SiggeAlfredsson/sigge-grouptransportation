@@ -15,7 +15,7 @@ public class UserController {
     private UserService userService;
 
 
-    @GetMapping("user")
+    @GetMapping("users")
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.getAll();
 
@@ -29,9 +29,9 @@ public class UserController {
         }
     }
 
-    @PostMapping("user")
-    @PatchMapping("user")
-    @PutMapping("user")
+    @PostMapping
+    @PatchMapping
+    @PutMapping
     public ResponseEntity<List<User>> createUser(@RequestBody User user) {
         userService.save(user);
         return getAllUsers();
