@@ -1,8 +1,9 @@
 ﻿# sigge-grouptransportation
 
-todo add when vehicle is free, add function to move vehicle, remove route from group
+microservice to get routes and assign then to groups.
 
-AUTH?
+TODO:
+Finish RouteController -> addCarRouteToGroup (check comments in class)
 
 
 ENDPOINTS
