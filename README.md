@@ -11,29 +11,39 @@ ENDPOINTS
 
 GET:
 
-groups      |/Gets a list of all groups with registered routes, users, vehicles.
+groups      
+|/Gets a list of all groups with registered routes, users, vehicles.
 
-route/car+params      |/get directions from point a to b.
+route/car+params   
+|/get directions from point a to b.
 
-user      |/List of all users
+user    
+|/List of all users
 
-vehicles      |/List of all vehicles in db
+vehicles   
+|/List of all vehicles in db
 
 -------------------
 
 POST:
 
-group     |/create a group
+group  
+|/create a group
 
-car/groupid+params |ex  /route/car/1?origin=Stenungsund&destination=Uddevalla   /Create a car route and add it to a group
+car/groupid+params 
+|ex  /route/car/1?origin=Stenungsund&destination=Uddevalla   /Create a car route and add it to a group
 
-user      |/create a user
+user 
+|/create a user
 
-user/userId/groupId     |/add a user to a group
+user/userId/groupId   
+|/add a user to a group
 
-vehicle     |/create vehicle
+vehicle 
+|/create vehicle
 
-vehicle/vehicleId/groupId     |/assign vehicle to group
+vehicle/vehicleId/groupId 
+|/assign vehicle to group
 
 -------------------
 
@@ -43,16 +53,20 @@ group/groupId
 
 user/userId
 
-user/userId/groupId     |/remove a user from a group
+user/userId/groupId  
+|/remove a user from a group
 
 vehicle/vehicleId
 
-vehicle/vehicleId/groupId     |/remove a vehicle from a group
+vehicle/vehicleId/groupId   
+|/remove a vehicle from a group
 
 -------------------
 
 PATCH:
 
-vehicle/use/{state}/{time}/vehicleId      |/set state if vehicle is free, state is 0/1, time is in minutes.
+vehicle/use/{state}/{time}/vehicleId    
+|/set state if vehicle is free, state is 0/1, time is in minutes.
 
-vehicle/{vehicleId}/location/{newLocatiom}      |/change location of a vehicle
+vehicle/{vehicleId}/location/{newLocatiom}    
+|/change location of a vehicle
