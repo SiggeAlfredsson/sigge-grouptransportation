@@ -54,3 +54,5 @@ vehicle/vehicleId/groupId     /remove a vehicle from a group
 PATCH:
 
 vehicle/use/{state}/{time}/vehicleId      /set state if vehicle is free, state is 0/1, time is in minutes.
+
+vehicle/{vehicleId}/location/{newLocatiom}      /change location of a vehicle
