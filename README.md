@@ -4,6 +4,7 @@ microservice to get routes and assign then to groups.
 
 TODO:
 Finish RouteController -> addCarRouteToGroup (check comments in class)
+hade troligen gjort klart sista klassen ifall jag inte hade kommit in sent i uppgiften
 
 
 ENDPOINTS
